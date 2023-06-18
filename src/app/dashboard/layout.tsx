@@ -5,8 +5,6 @@ import React, { ReactNode, useState } from 'react';
 import { useEffect } from 'react';
 import Footer from '@/components/dashboard/Footer';
 import Sidebar from '@/components/dashboard/Sidebar';
-import { getCookie } from 'cookies-next';
-import { useRouter } from "next/navigation";
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import { toast } from 'react-toastify';
@@ -18,8 +16,8 @@ type LayoutProps = {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
     
-    const [online, setOnline] = useState(false)
    
+    const [online, setOnline] = useState(false)
   return (
     <>
     <ToastContainer/>

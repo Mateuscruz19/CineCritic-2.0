@@ -6,7 +6,7 @@ import { useState } from "react";
 
 //Components
 import { BiChevronsDown } from "react-icons/bi";
-import FooterInicial from "@/components/ui/FooterInitial";
+import FooterInicial from "@/components/ui/Footer";
 import Title from "@/components/home/Title";
 import Nav from "@/components/home/Nav";
 import Cascate from "@/components/home/Cascate";

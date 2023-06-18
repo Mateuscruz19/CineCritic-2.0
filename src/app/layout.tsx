@@ -13,7 +13,6 @@ export const metadata = {
   description: 'Em desenvolvimento',
 }
 
-
 export default function RootLayout({
   children,
 }: {

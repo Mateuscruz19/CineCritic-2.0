@@ -2,37 +2,18 @@
 
 //React
 import "animate.css";
-import { useState,useCallback,useEffect } from "react";
-import { useRouter } from "next/navigation";
-import { getCookie } from "cookies-next";
+import { useState } from "react";
 
 //Components
-import Footer from "@/components/ui/FooterInitial";
+import Footer from "@/components/ui/Footer";
 import Nav from "@/components/auth/Nav";
 import Title from "@/components/auth/Title";
 import Form from "@/components/auth/Form";
-import { toast } from 'react-toastify';
-import { setCookie } from 'cookies-next';
 
 const Auth = () => {
 
-  const router = useRouter()
   const [variant, setVariant] = useState("login");
-  const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState('');
   const [clicked, setClicked] = useState(false);
-
-  const login = useCallback(async () => {
-
-  }, []);
-
-  const register = useCallback(async () => {
-  }, []);
-
-  function Tes() {
-  }
 
   return (
     <>
@@ -47,17 +28,6 @@ const Auth = () => {
                 setVariant={setVariant}
                 clicked={clicked}
                 setClicked={setClicked}
-                name={name}
-                setName={setName}
-                email={email}
-                setEmail={setEmail}
-                password={password}
-                setPassword={setPassword}
-                confirmPassword={confirmPassword}
-                setConfirmPassword={setConfirmPassword}
-                login={login}
-                register={register}
-                Tes={Tes}
               />
             </div>
             <Footer />

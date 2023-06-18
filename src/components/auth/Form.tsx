@@ -1,10 +1,35 @@
+"use client";
+
+//React
+import { useCallback, useEffect, useState } from "react";
+import { signIn, useSession } from "next-auth/react";
+import axios from "axios";
+
+//Components
 import Input from "@/components/auth/Input";
 import Button from "@/components/auth/Button";
+import { useRouter } from "next/navigation";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
-import { useCallback } from "react";
+
+//Hooks
+import { toast } from 'react-toastify';
 
 export default function Form(props: any) {
+  const router = useRouter();
+  const { data: session } = useSession();
+
+  useEffect(() => {
+    if (session && session.user) {
+      toast('Você já esta logado!');
+      router.push("/dashboard/home");
+    }
+  }, [router, session]);
+
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
 
   const toggleVariant = useCallback(() => {
     props.setVariant((currentVariant: string) =>
@@ -12,6 +37,37 @@ export default function Form(props: any) {
     );
     props.setClicked(props.clicked ? false : true);
   }, [props]);
+
+  const login = useCallback(async () => {
+    try {
+      await signIn("credentials", {
+        email,
+        password,
+        redirect: false,
+        callbackUrl: "/",
+      });
+      router.push("/dashboard/home");
+      toast('Logado com sucesso!');
+    } catch (error) {
+      toast('Erro, verique os campos inseridos!');
+      console.log(error);
+    }
+  }, [email, password, router]);
+
+  const register = useCallback(async () => {
+    try {
+      await axios.post("/api/register", {
+        email,
+        name,
+        password,
+      });
+      toast('Registrado com sucesso!');
+      login();
+    } catch (error) {
+      toast('Erro, verique os campos inseridos!');
+      console.log(error);
+    }
+  }, [email, name, password, login]);
 
   return (
     <div
@@ -26,38 +82,29 @@ export default function Form(props: any) {
       <div className="flex flex-col gap-4">
         {props.variant === "register" && (
           <Input
-            id="name"
+            id="username"
             type="text"
             label="Username"
-            value={props.name}
-            onChange={(e: any) => props.setName(e.target.value)}
+            value={name}
+            onChange={(e: any) => setName(e.target.value)}
           />
         )}
         <Input
           id="email"
           type="email"
           label="Email"
-          value={props.email}
-          onChange={(e: any) => props.setEmail(e.target.value)}
+          value={email}
+          onChange={(e: any) => setEmail(e.target.value)}
         />
         <Input
           type="password"
           id="password"
           label="Senha"
-          value={props.password}
-          onChange={(e: any) => props.setPassword(e.target.value)}
+          value={password}
+          onChange={(e: any) => setPassword(e.target.value)}
         />
-        {props.variant === "register" && (
-        <Input
-          type="password"
-          id="password"
-          label="Confirme a senha"
-          value={props.confirmPassword}
-          onChange={(e: any) => props.setConfirmPassword(e.target.value)}
-        />
-        )}
       </div>
-      <Button variant={props.variant} login={props.login} register={props.register} Tes={props.Tes}/>
+      <Button variant={props.variant} login={login} register={register} />
       <div className="flex flex-row items-center gap-4 mt-8 justify-center">
         <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center cursor-pointer hover:opacity-80 transition">
           <FcGoogle size={32} />
@@ -67,7 +114,9 @@ export default function Form(props: any) {
         </div>
       </div>
       <p className="text-neutral-500 mt-12">
-        {props.variant === "login" ? "Primeira vez ao site?" : "Já tem uma conta?"}
+        {props.variant === "login"
+          ? "Primeira vez ao site?"
+          : "Já tem uma conta?"}
         <span
           onClick={toggleVariant}
           className="text-[#C20808] ml-1 hover:underline cursor-pointer"
