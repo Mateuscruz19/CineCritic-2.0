@@ -1,35 +1,28 @@
 "use client";
 
 //React
-import { useCallback, useEffect, useState } from "react";
-import { signIn, useSession } from "next-auth/react";
+import { useCallback, useState } from "react";
+import { signIn } from "next-auth/react";
 import axios from "axios";
 
 //Components
 import Input from "@/components/auth/Input";
 import Button from "@/components/auth/Button";
-import { useRouter } from "next/navigation";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
+import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 //Hooks
 import { toast } from 'react-toastify';
 
 export default function Form(props: any) {
-  const router = useRouter();
-  const { data: session } = useSession();
-
-  useEffect(() => {
-    if (session && session.user) {
-      toast('Você já esta logado!');
-      router.push("/dashboard/home");
-    }
-  }, [router, session]);
-
-  const [username, setUsername] = useState("");
+  
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+
+  const router = useRouter();
 
   const toggleVariant = useCallback(() => {
     props.setVariant((currentVariant: string) =>
@@ -46,13 +39,12 @@ export default function Form(props: any) {
         redirect: false,
         callbackUrl: "/",
       });
-      router.push("/dashboard/home");
-      toast('Logado com sucesso!');
+      router.push('/dashboard/home')
     } catch (error) {
       toast('Erro, verique os campos inseridos!');
       console.log(error);
     }
-  }, [email, password, router]);
+  }, [email, password]);
 
   const register = useCallback(async () => {
     try {

@@ -11,7 +11,6 @@ import Title from "@/components/home/Title";
 import Nav from "@/components/home/Nav";
 import Cascate from "@/components/home/Cascate";
 
-
 export default function Home() {
   const [state, setState] = useState(true);
 
