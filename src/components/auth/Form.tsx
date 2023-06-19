@@ -44,7 +44,7 @@ export default function Form(props: any) {
       toast('Erro, verique os campos inseridos!');
       console.log(error);
     }
-  }, [email, password]);
+  }, [email, password, router]);
 
   const register = useCallback(async () => {
     try {
