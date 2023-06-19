@@ -4,11 +4,12 @@
 import React, { ReactNode, useState } from 'react';
 import { useEffect } from 'react';
 import Footer from '@/components/dashboard/Footer';
-import Sidebar from '@/components/dashboard/Sidebar';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import { toast } from 'react-toastify';
 import Dropdown from '@/components/dashboard/Dropdown';
+import Sidebar from "@/components/utils/Sidebar"
+import Nav from '@/components/utils/Nav';
 
 type LayoutProps = {
   children: ReactNode;
@@ -17,15 +18,13 @@ type LayoutProps = {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
     
    
-    const [online, setOnline] = useState(false)
   return (
     <>
     <ToastContainer/>
-    <Dropdown/>
       <div className='flex'>
-        <Sidebar online={online}/>
-        
+        <Sidebar />
       <div className='flex flex-col items-center w-full  h-full'>
+        <Nav/>
       <main className="flex mt-20">{children}</main>
       <Footer/>
       </div>
