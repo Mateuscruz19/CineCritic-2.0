@@ -2,17 +2,27 @@
 
 import Image from "next/image";
 import Search from "../dashboard/Search";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { SheetDemo } from "./Sheet";
 
 export default function Nav() {
-    return (<>
-        <div className="bg-white h-10 mt-10 w-[90%] flex justify-between">
-        <div className="flex ">
-            <div className="bg-blue-400 w-15 h-full mr-5 flex items-center rounded-md">
-                <p className="text-white">Bem-Vindo!</p>
-            </div>
+    return (
+    <>
+        <div className="mt-10 w-[90%] flex justify-between">
+            <div className="w-[60%] p-6 h-full bg-opacity-80 rounded-md bg-gray-800">
             <Search/>
+            </div>
+        <div className="w-fit p-3 h-28 flex flex-col items-center justify-center bg-opacity-80 rounded-md bg-gray-800">
+        <div className="flex mb-3">
+        <p className="text-white mr-2 mt-2">Fulaninho</p>
+        <Avatar>
+         <AvatarImage src="https://github.com/shadcn.png" />
+         <AvatarFallback>CN</AvatarFallback>
+        </Avatar>
+        
         </div>
-        <div className="bg-blue-400 w-5 h-10"></div>
+        <SheetDemo/>
+        </div>
         </div>
     </>)
 }

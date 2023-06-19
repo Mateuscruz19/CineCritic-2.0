@@ -49,7 +49,7 @@ export default function Home() {
           </div>
         </div>
         <div className="relative h-full flex flex-col items-center">
-          <h1 className="text-5xl mt-10 animate__animated animate__fadeInDown
+          <h1 className="text-5xl text-white mt-10 animate__animated animate__fadeInDown
           animate__slower font-semibold capitalize">Os maiores sucessos <span className="text-[#FF5757]">cinematográficos!</span></h1>
           <Cascate/>
             <FooterInicial/>
