@@ -16,11 +16,11 @@ export function SheetDemo() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button>Open</Button>
+        <Button>Edite seu perfil</Button>
       </SheetTrigger>
       <SheetContent position="right" size="sm">
         <SheetHeader>
-          <SheetTitle>Edit profile</SheetTitle>
+          <SheetTitle>Edite seu perfil</SheetTitle>
           <SheetDescription>
           Faça alterações no seu perfil aqui. Clique em salvar quando terminar.
           </SheetDescription>
@@ -41,7 +41,7 @@ export function SheetDemo() {
         </div>
         <SheetFooter>
           <SheetClose asChild>
-            <Button type="submit">Save changes</Button>
+            <Button type="submit">Salvar Mudanças</Button>
           </SheetClose>
         </SheetFooter>
       </SheetContent>

@@ -12,11 +12,11 @@ export default function Sidebar() {
    //      <p>Teste</p>
    //   </aside>
      <>
-     <div className="flex justify-center items-center h-screen w-80 ml-10 ">
-     <div className="top-0 z-40 w-64 h-[57rem]">
-         <div className="h-full px-3 py-4 overflow-y-aut flex flex-col items-center bg-opacity-40 rounded-md bg-gray-800">
-         <a href="/pages/dashboard/home" className="mr-3 sm:h-7 items-center pl-2.5 mb-5 ">
-         <Image src="/images/logos/logo2.png" alt="CineCritic Logo" width="160" height="100" className="bg-opacity-80 bg-gray-800 px-3 rounded-md"/>
+     <div className="flex justify-center items-center h-screen w-80 mt-20">
+     <div className=" z-40 w-64 h-[67rem]">
+         <div className="h-full px-3 py-4 overflow-y-aut flex flex-col items-center bg-opacity-40 rounded-lg bg-gray-800">
+         <a href="/dashboard/home" className="mr-3 sm:h-7 items-center pl-2.5 mb-5 ">
+         <Image src="/images/logos/logo2.png" alt="CineCritic Logo" width="160" height="100" className="bg-opacity-80 bg-gray-800 px-3 rounded-lg"/>
       </a>
       <div className="w-52 h-5/6 mt-20 flex flex-col justify-between">
       <ul className="space-y-2 font-medium">
@@ -27,7 +27,7 @@ export default function Sidebar() {
             </a>
          </li>
          <li>
-            <a href="#" className="flex items-center p-2 rounded-lg text-white bg-gray-700 hover:bg-black">
+            <a href="#" className="flex items-center p-2 rounded-lg text-white  hover:bg-gray-700">
                <svg aria-hidden="true" className="flex-shrink-0 w-6 h-6 text-white transition duration-75 group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
                <span className="flex-1 ml-3 whitespace-nowrap">Popular</span>
                <span className="inline-flex items-center justify-center px-2 ml-3 text-sm font-medium text-white bg-[#FF5757] rounded-full">Novo!</span>

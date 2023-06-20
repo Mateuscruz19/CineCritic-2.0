@@ -8,19 +8,16 @@ import { SheetDemo } from "./Sheet";
 export default function Nav() {
     return (
     <>
-        <div className="mt-10 w-[90%] flex justify-between">
-            <div className="w-[60%] p-6 h-full bg-opacity-80 rounded-md bg-gray-800">
+        <div className="h-20 w-full flex items-center justify-between bg-opacity-80 bg-gray-800 rounded-md">
+        <div className="ml-3 flex items-center justify-between">
             <Search/>
-            </div>
-        <div className="w-fit p-3 h-28 flex flex-col items-center justify-center bg-opacity-80 rounded-md bg-gray-800">
-        <div className="flex mb-3">
-        <p className="text-white mr-2 mt-2">Fulaninho</p>
-        <Avatar>
+        </div>
+        <div className="w-fit mr-3 flex items-center justify-center rounded-md  drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+        <p className="text-white mr-2">Fulaninho</p>
+        <Avatar className="mr-8">
          <AvatarImage src="https://github.com/shadcn.png" />
          <AvatarFallback>CN</AvatarFallback>
         </Avatar>
-        
-        </div>
         <SheetDemo/>
         </div>
         </div>

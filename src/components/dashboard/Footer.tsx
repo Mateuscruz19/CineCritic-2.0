@@ -1,6 +1,6 @@
 export default function Footer() {
     return (
-  <footer className="fixed bottom-0 rounded-lg shadow m-4 bg-black">
+  <footer className="fixed bottom-0 rounded-lg shadow m-4 bg-black ml-48">
       <div className="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
         <span className="text-sm text-gray-500 sm:text-center dark:text-gray-200">© 2023 <a  className="hover:underline">CineCritic™</a>. Todos os direitos reservados. 
       </span>
