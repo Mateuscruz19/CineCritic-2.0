@@ -17,27 +17,25 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <>
      <ToastContainer/>
-     
-      <div className='flex items-center flex-col h-full w-full'>
-        <div className='w-[93%] h-screen flex'>
-          <Sidebar/>
-          <div className='h-full w-[80%] mt-9'>
-            <Nav/>
-            <div className='mt-9 w-full'>
-            <main className="flex">{children}</main>
+     <div className="min-h-screen">
+  <div className="relative h-full bg-no-repeat bg-center bg-fixed bg-cover" style={{ backgroundImage: "url('/images/spiderbanner5.jpg')" }}>
+    <div className="bg-black bg-opacity-40 w-full h-full flex items-center justify-center">
+      <div className="container mx-auto flex">
+        <div className="w-1/4">
+          <Sidebar />
+        </div>
+        <div className="w-3/4">
+          <div className="h-95vh mt-10">
+            <Nav />
+            <div className="mt-9">
+              <main className="flex flex-col">{children}</main>
             </div>
           </div>
         </div>
-        <Footer/>
       </div>
-      {/* <div className='flex w-full  h-full'>
-      <Sidebar />
-        <div className='mt-9 w-[74.5%]'>
-         <main className="flex">{children}</main>
-        </div>
-      
-      </div>
-       */}
+    </div>
+  </div>
+</div>
     </>
   );
 };

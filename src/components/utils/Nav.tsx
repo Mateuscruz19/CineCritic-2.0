@@ -8,7 +8,7 @@ import { SheetDemo } from "./Sheet";
 export default function Nav() {
     return (
     <>
-        <div className="h-20 w-full flex items-center justify-between bg-opacity-80 bg-gray-800 rounded-md">
+        <div className="h-20 w-full flex items-center justify-between bg-opacity-70 bg-gray-800 rounded-md">
         <div className="ml-3 flex items-center justify-between">
             <Search/>
         </div>
