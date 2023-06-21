@@ -50,7 +50,7 @@ export default function PopularMovies() {
     return (
       <section className="py-8 ">
         <div className="container mx-auto px-4 bg-opacity-40 rounded-lg bg-black p-5">
-          <h2 className="text-2xl font-bold mb-4 text-white">Popular Movies</h2>
+          <h2 className="text-2xl font-bold mb-4 text-white">Filmes Populares</h2>
           <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-5 lg:grid-cols-5 gap-4">
             {popularMovies.map(movie => (
               <div key={movie.id} className="shadow-lg rounded-lg overflow-hidden bg-white bg-opacity-70">
