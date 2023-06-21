@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Cascate() {
   return (
-    <div className="grid md:grid-cols-7 gap-4 mt-14 animate__animated animate__fadeInDown animate__slower">
+    <div className="grid md:grid-cols-7 gap-4 mt-14 animate__animated animate__fadeInDown animate__slower mb-10">
       <div>
         <Image
           className="h-auto max-w-full rounded-lg hover:opacity-70"

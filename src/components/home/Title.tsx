@@ -10,7 +10,7 @@ export default function Title() {
    animate__fadeInDown
     animate__slower
      text-white text-4xl
-     uppercase font-bold"
+     uppercase font-bold max-xl:text-[1rem]"
       >
         A maior rede social para
       </h1>
@@ -21,7 +21,7 @@ export default function Title() {
      text-[#FF5757]
       text-9xl
        font-bold
-       max-[1188px]:text-5xl
+       max-xl:text-3xl
          tracking-tight
          uppercase
            drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] "
@@ -33,6 +33,7 @@ export default function Title() {
    animate__fadeInDown
     animate__slower
      text-white text-4xl
+     max-xl:text-2xl
      uppercase font-bold"
       >
         De Filmes e Series!

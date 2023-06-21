@@ -10,6 +10,7 @@ import Providers from "@/components/Providers";
 import { Suspense } from "react";
 import Loading from "./loading";
 import { ToastContainer } from "react-toastify";
+import FooterInicial from "@/components/ui/Footer";
 
 export const metadata = {
   title: "CineCritic - Review de filmes e series.",
