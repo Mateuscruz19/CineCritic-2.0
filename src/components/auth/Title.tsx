@@ -1,8 +1,8 @@
 export default function Title(props: any) {
   return (
-    <div className="px-16 py-16 mt-10">
+    <div className="max-xl:hidden px-16 py-16 mt-10">
       <h1
-        className={`animate__animated text-white  text-8xl font-bold mb-5 tracking-tight capitalize drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] ${
+        className={` animate__animated text-white  text-8xl font-bold mb-5 tracking-tight capitalize drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] ${
             props.variant === "login"
             ? "animate__fadeInDown animate__slower"
             : "animate__fadeInUp animate__slower"

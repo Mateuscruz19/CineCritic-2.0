@@ -63,8 +63,8 @@ export default function Form(props: any) {
 
   return (
     <div
-      className={`animate__animated bg-black bg-opacity-70 px-16 py-16
-    self-center mt-2 lg:w-2/5 lg:max-w-md rounded-md w-full
+      className={`o-3 animate__animated bg-black bg-opacity-70 px-16 py-16
+    self-center mt-2 lg:w-2/5 lg:max-w-md rounded-md w-full 
     ${props.variant === "login" ? "animate__fadeInDown" : "animate__fadeInUp"}`}
     >
       <h2 className="text-white text-4xl mb-8 font-semibold drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">

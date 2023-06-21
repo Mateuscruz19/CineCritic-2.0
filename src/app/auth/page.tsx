@@ -32,11 +32,11 @@ const Auth = () => {
 
   return (
     <>
-      <div className="h-screen">
-        <div className="relative h-full bg-no-repeat bg-center bg-fixed bg-cover bg-[url('/images/spiderverveback.jpg')]">
-          <div className="bg-black w-full h-full lg:bg-opacity-60">
-            <Nav variant={variant} />
-            <div className="flex justify-around">
+      <div className="xl:h-screen max-xl:min-h-screen">
+      <div className="relative h-full bg-no-repeat bg-center bg-fixed bg-cover bg-[url('/images/spiderverveback.jpg')]">
+      <div className="bg-black w-full h-full bg-opacity-40 flex flex-col justify-between">
+      <Nav variant={variant} />
+      <div className="flex justify-around">
               <Title variant={variant} />
               <Form
                 variant={variant}
@@ -45,9 +45,9 @@ const Auth = () => {
                 setClicked={setClicked}
               />
             </div>
-            <Footer />
-          </div>
-        </div>
+      <Footer />
+      </div>
+      </div>
       </div>
     </>
   );
