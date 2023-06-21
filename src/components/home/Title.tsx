@@ -21,7 +21,7 @@ export default function Title() {
      text-[#FF5757]
       text-9xl
        font-bold
-
+       max-[1188px]:text-5xl
          tracking-tight
          uppercase
            drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] "

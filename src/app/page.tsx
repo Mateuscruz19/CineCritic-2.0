@@ -25,8 +25,8 @@ export default function Home() {
   return (
     <>
       <div className="h-screen">
-        <div className="relative h-full bg-[url('/images/morales.jpg')] bg-no-repeat bg-center bg-fixed bg-cover">
-          <div className="bg-black w-full h-full lg:bg-opacity-60">
+        <div className="relative h-full bg-[url('/images/morales.jpg')] max-xl:bg-[url('/images/spiderversemobile.jpg')] bg-no-repeat bg-center bg-fixed bg-cover ">
+          <div className="bg-black w-full h-full bg-opacity-60 flex flex-col items-center">
          <Nav/>
             <div className="flex justify-around">
               <Title/>
@@ -50,7 +50,7 @@ export default function Home() {
         </div>
         <div className="relative h-full flex flex-col items-center">
           <h1 className="text-5xl text-white mt-10 animate__animated animate__fadeInDown
-          animate__slower font-semibold capitalize">Os maiores sucessos <span className="text-[#FF5757]">cinematográficos!</span></h1>
+          animate__slower font-semibold capitalize max-xl:text-[1rem]">Os maiores sucessos <span className="text-[#FF5757]">cinematográficos!</span></h1>
           <Cascate/>
             <FooterInicial/>
         </div>
