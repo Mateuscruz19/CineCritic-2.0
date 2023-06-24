@@ -1,16 +1,19 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Gender from "@/components/utils/Gender";
+import Genrer from "@/components/utils/Genrer";
 import Pagination from "@/components/utils/Pagination";
+import useCurrentUser from "hooks/useCurrentUser";
 
 export default function Genero() {
 
-    const [Genders, setGenders] = useState([])
+    const [Genrers, setGenrers] = useState([])
     const [Pages, setPages] = useState(1)
     const [Current, setCurrent] = useState(1)
 
     useEffect(() => {
+
+
         const options = {
             method: 'GET',
             headers: {
@@ -21,9 +24,8 @@ export default function Genero() {
           
           fetch('https://api.themoviedb.org/3/genre/movie/list?language=pt', options)
             .then(response => response.json())
-            .then(response => setGenders(response.genres))
+            .then(response => setGenrers(response.genres))
             .catch(err => console.error(err));
-        
     }, []);
 
     return(<>
@@ -31,8 +33,8 @@ export default function Genero() {
         <p className="text-white text-2xl mb-5">Generos</p>
         <Pagination setCurrent={setCurrent} Current={Current} Pages={Pages} setPages={setPages}/>
         <div className="grid grid-cols-4 gap-4">
-        {Genders.map((gender, index) => ( 
-                <Gender key={index} gender={gender} />
+        {Genrers.map((genrer, index) => ( 
+                <Genrer key={index} genrer={genrer} />
             ))}  
         </div>
      </div>

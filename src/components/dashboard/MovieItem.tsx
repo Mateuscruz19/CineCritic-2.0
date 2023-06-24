@@ -1,11 +1,16 @@
 import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function MovieItem({ movie }: any) {
 
+    const router = useRouter()
     const apiImageKey = 'https://image.tmdb.org/t/p/w500'
 
+
     return (<>
-    <div key={movie.id} className="shadow-lg rounded-lg overflow-hidden bg-white bg-opacity-70">
+    <Link href={`/dashboard/movie/${movie.id}`}>
+    <div  key={movie.id} className="shadow-lg rounded-lg overflow-hidden bg-white bg-opacity-70">
                 <img src={apiImageKey + movie.poster_path} alt={movie.title} className="w-full h-64 object-cover" />
                 <div className="p-4">
                   <h3 className="text-lg font-bold mb-2">{movie.title}</h3>
@@ -17,5 +22,6 @@ export default function MovieItem({ movie }: any) {
                   <button className="bg-[#FF5757] text-white py-2 px-4 rounded-lg">Saber Mais</button>
                 </div>
               </div>
+              </Link>
     </>)
 };

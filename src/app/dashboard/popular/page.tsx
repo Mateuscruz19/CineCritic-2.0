@@ -35,7 +35,7 @@ export default function Popular() {
           <Pagination setCurrent={setCurrent} Current={Current} Pages={Pages} setPages={setPages}/>
                 <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-5 lg:grid-cols-5 gap-4">
                 {popularMovies.map((movie, index) => ( 
-                <MovieItem movie={movie} key={index}/>
+                <MovieItem movie={movie} key={index} />
             ))}
             <Pagination setCurrent={setCurrent} Current={Current} Pages={Pages} setPages={setPages}/>
                 </div>

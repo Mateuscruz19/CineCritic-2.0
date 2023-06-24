@@ -1,4 +1,4 @@
-import NextAuth from "next-auth/next";
+import NextAuth, { AuthOptions } from 'next-auth';
 import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 import GithubProvider from "next-auth/providers/github";
@@ -27,7 +27,7 @@ const handler = NextAuth({
               const user = await res.json();
 
             if (user) {
-              // Any object returned will be saved in `user` property of the JWT
+              console.log(user)
               return user;
             } else {
               // If you return null then an error will be displayed advising the user to check their details.
@@ -62,3 +62,4 @@ const handler = NextAuth({
     });
     
     export { handler as GET, handler as POST };
+

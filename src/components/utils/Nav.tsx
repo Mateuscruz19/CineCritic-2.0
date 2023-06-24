@@ -18,7 +18,6 @@ export default function Nav() {
          <AvatarImage src="https://github.com/shadcn.png" />
          <AvatarFallback>CN</AvatarFallback>
         </Avatar>
-        <SheetDemo/>
         </div>
         </div>
     </>)
