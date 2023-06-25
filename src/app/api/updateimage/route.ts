@@ -1,24 +1,26 @@
 import { verifyJwt } from "@/lib/jwt";
 import prisma from "@/lib/prisma";
 
-export async function GET(request: Request) {
-  const accessToken = request.headers.get("authorization");
-  if (!accessToken || !verifyJwt(accessToken)) {
-    return new Response(
-      JSON.stringify({
-        error: "unauthorized",
-      }),
-      {
-        status: 401,
-      }
-    );
+  interface RequestBody {
+    email: string;
+    newImage: string;
   }
 
-  // const user = await prisma.user.findFirst({
-  //   where: {
-  //     email: body.username,
-  //   },
-  // });
+export async function POST(request: Request) {
+    const body: RequestBody = await request.json(); 
 
-  return new Response(JSON.stringify(accessToken));
+    try {
+        const updatedUser = await prisma.user.update({
+            where: {
+                email: body.email,
+            },
+            data: {
+                icon: body.newImage,
+            },
+        });
+        console.log("user", updatedUser);
+        return new Response(JSON.stringify({message: `Usuário ${body.email} teve o icone atualizado!`}));;
+    } catch (error) {
+        return new Response(JSON.stringify({message: `Erro ao atualizar o nome do usuário ${body.email}!`}));;
+    }
 }

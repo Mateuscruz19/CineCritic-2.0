@@ -70,7 +70,7 @@ export default function ShowAllMoviesFromGenrer({ params }: { params: Params }) 
          <div className= "bg-opacity-70 bg-gray-800 rounded-md flex flex-col w-full h-fit mb-16 p-4 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
         <h2 className="text-2xl font-bold mb-4 text-white">{Genrer?.name}</h2>
           <Pagination setCurrent={setCurrent} Current={Current} Pages={Pages} setPages={setPages}/>
-                <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-5 lg:grid-cols-5 gap-4">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
                  {Movies.map((movie, index) => ( 
                 <MovieItem movie={movie} key={index} />
             ))}

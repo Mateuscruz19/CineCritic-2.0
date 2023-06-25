@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import SwiperCore, { Navigation, Pagination, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";

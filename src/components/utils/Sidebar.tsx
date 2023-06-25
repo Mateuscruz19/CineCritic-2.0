@@ -7,7 +7,7 @@ export default function Sidebar() {
 
   return (
      <>
-     <div className="flex justify-center items-center h-full w-80">
+     <div className="flex justify-center items-center h-full w-80 max-xl:hidden">
      <div className=" z-40 w-64 h-[95%]">
          <div className="h-full px-3 py-4 overflow-y-aut flex flex-col items-center bg-opacity-70 rounded-lg bg-gray-800">
          <a href="/dashboard/home" className="mr-3 sm:h-7 items-center pl-2.5 mb-5 ">

@@ -32,7 +32,7 @@ export default function Genero() {
      <div className= "items-center justify-center bg-opacity-70 bg-gray-800 rounded-md flex flex-col w-full h-fit mb-16 p-4 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] ">
         <p className="text-white text-2xl mb-5">Generos</p>
         <Pagination setCurrent={setCurrent} Current={Current} Pages={Pages} setPages={setPages}/>
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {Genrers.map((genrer, index) => ( 
                 <Genrer key={index} genrer={genrer} />
             ))}  

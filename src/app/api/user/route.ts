@@ -14,7 +14,7 @@ export async function POST(request: Request) {
     data: {
       name: body.name,
       email: body.email,
-      icon: "profile",
+      icon: "https://github.com/shadcn.png",
       password: await bcrypt.hash(body.password, 10),
     },
   });

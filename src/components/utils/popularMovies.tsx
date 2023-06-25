@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import MovieItem from "../dashboard/MovieItem"
 import Link from "next/link"
 
@@ -17,7 +18,7 @@ const popularMovies = [
       description: 'A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.',
       poster_path: 'https://m.media-amazon.com/images/I/71KPOvu-hOL._AC_UF894,1000_QL80_.jpg',
       vote_average: 8.2,
-      genres: ['Action', 'Adventure', 'Drama'],
+      genres: ['Crime', 'Dama', 'Thriller'],
       release_date: '2019'
     },
     {
@@ -34,18 +35,18 @@ const popularMovies = [
         title: 'Dora!',
         description: 'A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.',
         poster_path: 'https://cdn.shopify.com/s/files/1/0969/9128/products/Dora_The_Explorer_And_The_Lost_City_Of_Gold_-_Hollywood_English_Movie_Poster_1_66c87e56-24a2-4135-b709-a6b98a7f7bce.jpg?v=1577693664',
-        vote_average: 8.8,
-        genres: ['Action', 'Adventure', 'Drama'],
-        release_date: '2020'
+        vote_average: 6.7,
+        genres: ['Comedia', 'Aventura', 'Familia'],
+        release_date: '2019'
       },
       {
         id: 447277,
         title: 'Pequena Sereia',
         description: 'A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.',
         poster_path: 'https://deadline.com/wp-content/uploads/2023/04/FupVaRaWwAAe7tw.jpg?w=800',
-        vote_average: 8.8,
-        genres: ['Action', 'Adventure', 'Drama'],
-        release_date: '2020'
+        vote_average: 6.2,
+        genres: ['Romance', 'Fantasia', 'Aventura'],
+        release_date: '2023'
       },
   ]
   
@@ -54,7 +55,7 @@ export default function PopularMovies() {
       <section className="py-8 ">
         <div className="container mx-auto px-4 bg-opacity-40 rounded-lg bg-black p-5">
           <h2 className="text-2xl font-bold mb-4 text-white">Filmes Populares</h2>
-          <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-5 lg:grid-cols-5 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
             {popularMovies.map(movie => (
                <Link key={movie.id} href={`/dashboard/movie/${movie.id}`}>
                <div  key={movie.id} className="shadow-lg rounded-lg overflow-hidden bg-white bg-opacity-70">
