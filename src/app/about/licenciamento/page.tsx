@@ -1,4 +1,4 @@
-import About from "@/components/home/About";
+import About from "@/components/About";
 
 const Licenciamento = () => {
     return(<>

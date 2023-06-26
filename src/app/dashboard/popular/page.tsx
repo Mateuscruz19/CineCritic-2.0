@@ -1,9 +1,9 @@
 "use client";
 
-import PopularMovies from "@/components/utils/popularMovies"
+import PopularMovies from "@/components/movieComponents/popularMovies"
 import { useEffect, useState } from "react";
-import MovieItem from "@/components/dashboard/MovieItem";
-import Pagination from "@/components/utils/Pagination";
+import MovieItem from "@/components/movieComponents/MovieItem";
+import Pagination from "@/components/Pagination";
 
 export default function Popular() {
 

@@ -1,3 +1,5 @@
+'use client';
+
 import Image from "next/image";
 import { signOut } from "next-auth/react";
 import { useState } from "react";
@@ -51,12 +53,6 @@ export default function Header() {
               className="block mt-4 sm:inline-block sm:mt-0 text-white hover:bg-gray-700 mr-4"
             >
               Gêneros
-            </a>
-            <a
-              href="/dashboard/perfil"
-              className="block mt-4 sm:inline-block sm:mt-0 text-white hover:bg-gray-700 mr-4"
-            >
-              Perfil
             </a>
             <a
               onClick={() => signOut({ callbackUrl: "/" })}

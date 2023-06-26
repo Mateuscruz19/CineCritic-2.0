@@ -1,8 +1,8 @@
 'use client';
 
 import { useEffect, useState } from "react";
-import Pagination from "@/components/utils/Pagination";
-import MovieItem from "@/components/dashboard/MovieItem";
+import Pagination from "@/components/Pagination";
+import MovieItem from "@/components/movieComponents/MovieItem";
 import { useRouter } from "next/navigation";
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 

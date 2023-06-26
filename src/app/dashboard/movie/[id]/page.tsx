@@ -1,14 +1,27 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import React, { useEffect, useState } from "react";
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
-import { MovieType } from "@/lib/types/movieID";
+import { MovieType } from "@/app/types";
+import NewReview from "@/components/movieComponents/NewReview";
+import { useSession } from "next-auth/react";
+import UserReview from "@/components/movieComponents/UserReview";
+import getAllReviews from "@/app/actions/getAllMovieReviews";
+import { ReviewType } from "@/app/types";
+
 
 const MoviePage = ({ params }: { params: Params }) => {
   const movieId = params.id;
   const [movie, setMovie] = useState<MovieType | null>(null);
 
+  const [reviews, setReviews] = useState<ReviewType[] | null>(null);
+  const { data: session } = useSession();
+  const user = session?.user;
+  const userId = user?.id;
+
   useEffect(() => {
+    
     const fetchData = async () => {
       try {
         const options = {
@@ -37,6 +50,23 @@ const MoviePage = ({ params }: { params: Params }) => {
 
     fetchData();
   }, [movieId]);
+
+
+  useEffect(() => {
+    const fetchUserReview = async () => {
+
+    const response = await getAllReviews(movieId);
+      console.log(response.review);
+      if (response.review.length !== 0) {
+        setReviews(response.review);
+      }
+    
+  }
+  fetchUserReview();
+  }, [movieId]);
+
+
+
 
   return (
     <div className="bg-opacity-70 bg-gray-800 rounded-md flex flex-col w-full h-fit p-4 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] mb-24">
@@ -76,6 +106,14 @@ const MoviePage = ({ params }: { params: Params }) => {
       ) : (
         <p className="text-white">Filme não encontrado!</p>
       )}
+      <NewReview movieId={movieId} userId={userId || 0}/>
+      <div className="flex flex-col justify-center items-center">
+        <p className="text-2xl font-bold my-4 text-white">Todas as reviews:</p>
+        {!reviews && <p className="text-gray-400">Ainda não há nenhuma review, seja o primeiro!</p>}
+        {reviews?.map((review, index) => (
+          <UserReview key={index} review={review}/>
+        ))}
+      </div>
     </div>
   );
 };

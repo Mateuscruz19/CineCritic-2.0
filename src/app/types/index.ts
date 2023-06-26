@@ -1,3 +1,5 @@
+import { User } from "@prisma/client";
+
 export type MovieType = {
     adult: boolean;
     backdrop_path: string;
@@ -45,3 +47,13 @@ export type MovieType = {
     vote_count: number;
   };
   
+export type ReviewType = {
+    id: number;
+    userid: number;
+    movieid: string;
+    review: string;
+    nota: number;
+    createdAt: string; 
+  }
+
+  export type SafeUser = User;

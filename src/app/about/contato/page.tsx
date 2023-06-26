@@ -1,5 +1,5 @@
-import Nav from "@/components/home/Nav";
-import About from "@/components/home/About";
+import Nav from "@/components/Nav";
+import About from "@/components/About";
 
 const Contato = () => {
     return(<>

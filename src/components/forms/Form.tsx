@@ -6,21 +6,21 @@ import { signIn } from "next-auth/react";
 import axios from "axios";
 
 //Components
-import Input from "@/components/auth/Input";
-import Button from "@/components/auth/Button";
+import Input from "@/components/inputs/Input";
+import Button from "@/components/buttons/LoginButton";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
-import { redirect } from "next/navigation";
 import { useRouter } from "next/navigation";
 
 //Hooks
-import { toast } from 'react-toastify';
+import { toast } from "react-hot-toast";
 
 export default function Form(props: any) {
   
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const router = useRouter();
 
@@ -32,33 +32,45 @@ export default function Form(props: any) {
   }, [props]);
 
   const login = useCallback(async () => {
-    try {
-      await signIn("credentials", {
+    setIsLoading(true);
+    
+    signIn("credentials", {
         email,
         password,
         redirect: false,
         callbackUrl: "/",
-      });
-      router.push('/dashboard/home')
-    } catch (error) {
-      toast('Erro, verique os campos inseridos!');
-      console.log(error);
-    }
+      })
+      .then((callback) => {
+        setIsLoading(false);
+         
+        if (callback?.ok) {
+          toast.success('Logado!');
+          router.push('/dashboard/home')
+        }
+        if (callback?.error) {
+          toast.error(callback.error);
+        }
+      })
   }, [email, password, router]);
 
   const register = useCallback(async () => {
-    try {
-      await axios.post("/api/register", {
+    setIsLoading(true);
+
+      axios.post("/api/register", {
         email,
         name,
         password,
-      });
-      toast('Registrado com sucesso!');
-      login();
-    } catch (error) {
-      toast('Erro, verique os campos inseridos!');
-      console.log(error);
-    }
+      })
+      .then(() => {
+        toast.success("Conta criada com sucesso!");
+      })
+      .catch((error) => {
+        toast.error(error);
+      })
+      .finally(() => {
+      setIsLoading(false);
+    })
+    
   }, [email, name, password, login]);
 
   return (
@@ -74,14 +86,17 @@ export default function Form(props: any) {
       <div className="flex flex-col gap-4">
         {props.variant === "register" && (
           <Input
+          disabled={isLoading}
             id="username"
             type="text"
             label="Username"
             value={name}
+            
             onChange={(e: any) => setName(e.target.value)}
           />
         )}
         <Input
+        disabled={isLoading}
           id="email"
           type="email"
           label="Email"
@@ -89,6 +104,7 @@ export default function Form(props: any) {
           onChange={(e: any) => setEmail(e.target.value)}
         />
         <Input
+        disabled={isLoading}
           type="password"
           id="password"
           label="Senha"
@@ -96,20 +112,20 @@ export default function Form(props: any) {
           onChange={(e: any) => setPassword(e.target.value)}
         />
       </div>
-      <Button variant={props.variant} login={login} register={register} />
+      <Button variant={props.variant} login={login} register={register} disabled={isLoading}/>
       <div className="flex flex-row items-center gap-4 mt-8 justify-center">
         <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center cursor-pointer hover:opacity-80 transition">
-          <FcGoogle size={32} />
+          <FcGoogle size={32}  onClick={() => signIn('google')}/>
         </div>
         <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center cursor-pointer hover:opacity-80 transition">
-          <FaGithub size={32} />
+          <FaGithub size={32} onClick={() => signIn('github')}/>
         </div>
       </div>
       <p className="text-neutral-500 mt-12">
         {props.variant === "login"
           ? "Primeira vez ao site?"
           : "Já tem uma conta?"}
-        <span
+        <span 
           onClick={toggleVariant}
           className="text-[#C20808] ml-1 hover:underline cursor-pointer"
         >

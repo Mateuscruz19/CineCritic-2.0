@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import MovieItem from "../dashboard/MovieItem"
+import MovieItem from "./MovieItem"
 import Link from "next/link"
 
 const popularMovies = [

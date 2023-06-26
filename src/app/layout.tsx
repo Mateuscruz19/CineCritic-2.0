@@ -9,8 +9,7 @@ const inter = Inter({ subsets: ["latin"] });
 import Providers from "@/components/Providers";
 import { Suspense } from "react";
 import Loading from "./loading";
-import { ToastContainer } from "react-toastify";
-import FooterInicial from "@/components/ui/Footer";
+import ToasterProvider from "./providers/ToasterProvider";
 
 export const metadata = {
   title: "CineCritic - Review de filmes e series.",
@@ -27,7 +26,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Suspense fallback={<Loading />}>
           <Providers>
-            <ToastContainer/>
+            <ToasterProvider />
             {children}
           </Providers>
         </Suspense>

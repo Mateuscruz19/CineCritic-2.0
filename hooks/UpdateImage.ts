@@ -1,18 +1,6 @@
 import { useSession } from "next-auth/react";
 
  
-interface User {
-    accessToken: string;
-    createdAt: string;
-    email: string;
-    exp: number;
-    iat: number;
-    icon: string;
-    id: number;
-    jti: string;
-    name: string;
-    sub: string;
-  };
 
 
 export default async function UpdateImage(newImage: string) {

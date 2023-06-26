@@ -2,64 +2,68 @@ import NextAuth, { AuthOptions } from 'next-auth';
 import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 import GithubProvider from "next-auth/providers/github";
+import { PrismaAdapter } from "@next-auth/prisma-adapter"
+import prisma from '@/lib/prismadb';
 
-const handler = NextAuth({
-    providers: [
-        CredentialsProvider({
-          name: "Credentials",
-          credentials: {
-            username: { label: "Username", type: "text", placeholder: "jsmith" },
-            password: { label: "Password", type: "password" }
-          },
-          async authorize(credentials, req) {
-            // Add logic here to look up the user from the credentials supplied
-            const res = await fetch("http://localhost:3000/api/login", {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                  username: credentials?.username,
-                  password: credentials?.password,
-                }),
-              });
-      
-              const user = await res.json();
-
-            if (user) {
-              console.log(user)
-              return user;
-            } else {
-              // If you return null then an error will be displayed advising the user to check their details.
-              return null
-      
-              // You can also Reject this callback with an Error thus the user will be sent to the error page with the error message as a query parameter
-            }
-          }
-        }),
-        GoogleProvider({
-          clientId: process.env.GOOGLE_CLIENT_ID ?? "",
-          clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? "",
-        }),
-        GithubProvider({
-          clientId: process.env.GITHUB_CLIENT_ID ?? "",
-          clientSecret: process.env.GITHUB_CLIENT_SECRET ?? "",
-        }),
-      ],
-      pages:{
-        signIn: "/auth"
-      },
-      callbacks: {
-        async jwt({ token, user }) {
-          return { ...token, ...user };
+export const authOptions: AuthOptions = {
+  adapter: PrismaAdapter(prisma),
+  providers: [
+      CredentialsProvider({
+        name: "Credentials",
+        credentials: {
+          email: { label: 'email', type: 'text' },
+          password: { label: 'password', type: 'password' }
         },
+        async authorize(credentials) {
+
+          const res = await fetch("http://localhost:3000/api/login", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                email: credentials?.email,
+                password: credentials?.password,
+              }),
+            });
     
-        async session({ session, token }) {
-          session.user = token as any;
-          return session;
-        },
+            const user = await res.json();
+
+          if (user) {
+            console.log(user)
+            return user;
+          } else {
+            return null
+          }
+        }
+      }),
+      GoogleProvider({
+        clientId: process.env.GOOGLE_CLIENT_ID as string,
+        clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+      }),
+      GithubProvider({
+        clientId: process.env.GITHUB_CLIENT_ID as string,
+        clientSecret: process.env.GITHUB_CLIENT_SECRET as string,
+      }),
+    ],
+    pages:{
+      signIn: "/auth"
+    },
+    session: {
+      strategy: "jwt",
+    },
+    callbacks: {
+      async jwt({ token, user }) {
+        return { ...token, ...user };
       },
-    });
+  
+      async session({ session, token }) {
+        session.user = token as any;
+        return session;
+      },
+    },
+  };
+  
+    const handler = NextAuth(authOptions);
     
     export { handler as GET, handler as POST };
-

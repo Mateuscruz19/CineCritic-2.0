@@ -6,10 +6,10 @@ import { useState } from "react";
 
 //Components
 import { BiChevronsDown } from "react-icons/bi";
-import FooterInicial from "@/components/ui/Footer";
-import Title from "@/components/home/Title";
-import Nav from "@/components/home/Nav";
-import Cascate from "@/components/home/Cascate";
+import FooterInicial from "@/components/footers/Footer";
+import Title from "@/components/titleComponents/Title";
+import Nav from "@/components/navbars/IndexNavegationbar";
+import Cascate from "@/components/movieComponents/Cascate";
 
 export default function Home() {
   const [state, setState] = useState(true);

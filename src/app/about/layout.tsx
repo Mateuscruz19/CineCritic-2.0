@@ -4,8 +4,8 @@
 import React, { ReactNode } from 'react';
 
 //Components
-import Nav from '@/components/home/Nav';
-import FooterInicial from '@/components/ui/Footer';
+import Nav from '@/components/Nav';
+import FooterInicial from '@/components/footers/Footer';
 
 type LayoutProps = {
   children: ReactNode;

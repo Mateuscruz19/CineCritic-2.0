@@ -1,9 +1,9 @@
 'use client';
 
-import EditProfileTab from "@/components/dashboard/PerfilComponent";
-import prisma from "@/lib/prisma";
+import EditProfileTab from "@/components/PerfilComponent";
+import prisma from "@/lib/prismadb";
 import { useSession, getSession } from 'next-auth/react';
-import PopularMovies from "@/components/utils/popularMovies";
+import PopularMovies from "@/components/movieComponents/popularMovies";
 
 export default function Perfil() {
     const { data: session } = useSession();

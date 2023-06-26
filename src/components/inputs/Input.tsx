@@ -5,17 +5,20 @@ interface InputProps {
   onChange: any;
   value: string;
   label: string;
+  disabled?: boolean;
   type?: string;
 }
 
-const Input: React.FC<InputProps> = ({ id, onChange, value, label, type }) => {
+const Input: React.FC<InputProps> = ({ id, onChange, value, label, type, disabled }) => {
   return (
     <div className="relative">
       <input
+        disabled={disabled}
         onChange={onChange}
         value={value}
         type={type}
         id={id}
+        required
         className="
         block
         rounded-md

@@ -1,5 +1,4 @@
-import { verifyJwt } from "@/lib/jwt";
-import prisma from "@/lib/prisma";
+import prisma from "@/lib/prismadb";
      
 interface User {
     accessToken: string;

@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Genrer from "@/components/utils/Genrer";
-import Pagination from "@/components/utils/Pagination";
+import Genrer from "@/components/Genrer";
+import Pagination from "@/components/Pagination";
 import useCurrentUser from "hooks/useCurrentUser";
 
 export default function Genero() {

@@ -1,9 +1,9 @@
-import prisma from "@/lib/prisma";
+import prisma from "@/lib/prismadb";
 import { signJwtAccessToken } from "@/lib/jwt";
 import * as bcrypt from "bcrypt";
 
 interface RequestBody {
-    username: string;
+    email: string;
     password: string;
   }
 
@@ -12,7 +12,7 @@ export async function POST(request: Request) {
 
     const user = await prisma.user.findFirst({
         where: {
-          email: body.username,
+          email: body.email,
         },
       });
 

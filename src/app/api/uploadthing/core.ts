@@ -1,21 +1,8 @@
 import { createUploadthing, type FileRouter } from "uploadthing/next";
-import prisma from "@/lib/prisma";
+import prisma from "@/lib/prismadb";
 import updateImage from "hooks/UpdateImage";
 
 const f = createUploadthing();
-
-interface User {
-  accessToken: string;
-  createdAt: string;
-  email: string;
-  exp: number;
-  iat: number;
-  icon: string;
-  id: number;
-  jti: string;
-  name: string;
-  sub: string;
-};
 
 const auth = (req: Request) => ({ id: "fakeId" });
 

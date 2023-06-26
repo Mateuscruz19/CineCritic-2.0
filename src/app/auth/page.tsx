@@ -7,10 +7,10 @@ import { useSession } from "next-auth/react";
 import { redirect, useRouter } from "next/navigation";
 
 //Components
-import Footer from "@/components/ui/Footer";
-import Nav from "@/components/auth/Nav";
-import Title from "@/components/auth/Title";
-import Form from "@/components/auth/Form";
+import Footer from "@/components/footers/Footer";
+import Nav from "@/components/navbars/IndexNavegationbar";
+import Title from "@/components/titleComponents/AuthTitle";
+import Form from "@/components/forms/Form";
 
 //Hooks
 import { toast } from 'react-toastify';
@@ -20,15 +20,6 @@ const Auth = () => {
   const [variant, setVariant] = useState("login");
   const [clicked, setClicked] = useState(false);
 
-  // const router = useRouter();
-  // const { data: session } = useSession();
-
-  // useEffect(() => {
-  //   if (session && session.user) {
-  //     toast('Você já esta logado!');
-  //     redirect("/dashboard/home");
-  //   }
-  // }, [router, session]);
 
   return (
     <>

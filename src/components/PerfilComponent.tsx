@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { UploadButton } from '@/utils/uploadthing';
-import updateName from 'hooks/UpdateName';
+// import updateName from 'hooks/UpdateName';
 
 type FileData = {
   fileUrl: string;
@@ -20,7 +20,7 @@ const EditProfileTab = ({ user }: any) => {
     e.preventDefault(); // Impede o comportamento padrão do envio do formulário
     if (Name.trim() !== '') {
       console.log(Name);
-      updateName(user, Name);
+      // updateName(user, Name);
       alert('Nome atualizado com sucesso!')
     } else {
       alert('Digite um novo nome de usuário!');

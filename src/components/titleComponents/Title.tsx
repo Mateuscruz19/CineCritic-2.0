@@ -1,5 +1,5 @@
-import ButtonBlue from "./ButtonRed";
-import ButtonWhite from "./ButtonWhite";
+import ButtonBlue from "../buttons/IndexRedButton";
+import ButtonWhite from "../buttons/IndexWhiteButton";
 import { signOut } from "next-auth/react";
 
 export default function Title() {

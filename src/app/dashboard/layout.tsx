@@ -1,24 +1,28 @@
-"use client";
-
 //React
-import React, { ReactNode, useState } from 'react';
-import Footer from '@/components/dashboard/Footer';
+import React, { ReactNode } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
-import Sidebar from "@/components/utils/Sidebar"
-import Nav from '@/components/utils/Nav';
-import { SessionProvider } from "next-auth/react"
-import Header from '@/components/utils/Header';
+import Sidebar from "@/components/navbars/Sidebar"
+import Nav from '@/components/navbars/DashboardNavbar';
+
+import Header from '@/components/navbars/MobileOnlyHeader';
+import getCurrentUser from '@/app/actions/getCurrentUser';
+
 
 type LayoutProps = {
   children: ReactNode;
 };
 
-const Layout: React.FC<LayoutProps> = ({ children },{session}) => {
-    
+export default async function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+
+  const currentUser = await getCurrentUser();
+
   return (
     <>
-      <SessionProvider session={session}>
         <ToastContainer/>
         <div className="min-h-screen">
           <div className="relative h-full bg-no-repeat bg-center bg-fixed bg-cover" style={{ backgroundImage: "url('/images/spiderbanner5.jpg')" }}>
@@ -29,7 +33,7 @@ const Layout: React.FC<LayoutProps> = ({ children },{session}) => {
                 </div>
                 <div className="w-full sm:w-3/4">
                   <div className="h-95vh mt-10">
-                  <Nav />
+                  <Nav currentUser={currentUser} />
                   <Header/>
                     <div className="mt-9">
                       <main className="flex flex-col">{children}</main>
@@ -40,10 +44,7 @@ const Layout: React.FC<LayoutProps> = ({ children },{session}) => {
             </div>
           </div>
         </div>
-      </SessionProvider>
     </>
   );
 };
-
-export default Layout;
 

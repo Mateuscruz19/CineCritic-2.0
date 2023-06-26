@@ -1,9 +1,9 @@
 "use client";
 
 import Head from 'next/head'
-import FeaturedMoviesB from '@/components/utils/FeaturedMovies'
-import PopularMovies from '@/components/utils/popularMovies'
-import Cabecalho from '@/components/utils/Cabecalho';
+import FeaturedMoviesB from '@/components/movieComponents/FeaturedMovies'
+import PopularMovies from '@/components/movieComponents/popularMovies'
+import Cabecalho from '@/components/navbars/Cabecalho';
 
 export default function Home() {
   return (

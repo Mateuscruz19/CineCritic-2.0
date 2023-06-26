@@ -3,8 +3,8 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import Pagination from "@/components/utils/Pagination";
-import MovieItem from "@/components/dashboard/MovieItem";
+import Pagination from "@/components/Pagination";
+import MovieItem from "@/components/movieComponents/MovieItem";
 import { useState } from "react";
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 

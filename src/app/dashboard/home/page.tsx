@@ -1,7 +1,7 @@
 'use client';
 
-import FeaturedMoviesB from "@/components/utils/FeaturedMovies";
-import PopularMovies from "@/components/utils/popularMovies";
+import FeaturedMoviesB from "@/components/movieComponents/FeaturedMovies";
+import PopularMovies from "@/components/movieComponents/popularMovies";
 
 export default function DashboardHome() {
   return (
