@@ -63,6 +63,7 @@ export default function Form(props: any) {
       })
       .then(() => {
         toast.success("Conta criada com sucesso!");
+        login();
       })
       .catch((error) => {
         toast.error(error);

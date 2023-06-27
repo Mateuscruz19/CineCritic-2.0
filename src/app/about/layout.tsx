@@ -4,7 +4,7 @@
 import React, { ReactNode } from 'react';
 
 //Components
-import Nav from '@/components/Nav';
+import Nav from '@/components/navbars/IndexNavegationbar';
 import FooterInicial from '@/components/footers/Footer';
 
 type LayoutProps = {

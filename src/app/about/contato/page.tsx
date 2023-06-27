@@ -1,4 +1,4 @@
-import Nav from "@/components/Nav";
+import Nav from "@/components/navbars/IndexNavegationbar";
 import About from "@/components/About";
 
 const Contato = () => {

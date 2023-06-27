@@ -11,10 +11,6 @@ import { Suspense } from "react";
 import Loading from "./loading";
 import ToasterProvider from "./providers/ToasterProvider";
 
-export const metadata = {
-  title: "CineCritic - Review de filmes e series.",
-  description: "Em desenvolvimento",
-};
 
 export default function RootLayout({
   children,

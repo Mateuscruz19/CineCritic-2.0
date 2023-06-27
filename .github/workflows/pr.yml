@@ -1,5 +1,0 @@
-# name: Pull Request On Github
-# on: [pull_request]
-# jobs:
-#     PullRequest-Github:
-#         runs-on:
